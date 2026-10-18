@@ -1,0 +1,21 @@
+# Lab Timer & Practice Tracker (IT 313 – Laboratory 5)
+
+## Problem
+A small screen for lab sessions that tracks how many practice problems a
+student solved and how long they have been working.
+
+## Approach
+- `useState` – `solved`, `isRunning` (LabScreen) and `seconds` (useStopwatch)
+- `useEffect` + `setInterval` with cleanup (`clearInterval`) inside the
+  custom hook `useStopwatch`, dependency array `[isRunning]`
+- Functional updates (`s => s + 1`) to avoid stale closures
+- Conditional rendering: "Great job!" at 5+ solved, "Running…" / "Paused"
+- Lifting state up: `PracticeTracker` and `Stopwatch` are siblings that
+  share state through `LabScreen`
+- All handlers are passed as function references
+
+## How to run
+1. Install Node.js and the **Expo Go** app on your phone.
+2. `npm install`
+3. `npx expo start`
+4. Scan the QR code with Expo Go (Android) or the Camera app (iOS).
